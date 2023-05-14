@@ -1,4 +1,5 @@
-﻿using FSMicroControllerHub.SimConnect.Events;
+﻿using FSMicroControllerHub.SimConnect.ResponseEventHandlers;
+using FSMicroControllerHub.SimConnect.SimEvents;
 using Microsoft.FlightSimulator.SimConnect;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,20 @@ namespace FSMicroControllerHub.SimConnect
         internal static void SimConnectInterface_HandleOnRecvOpen(Microsoft.FlightSimulator.SimConnect.SimConnect sender, SIMCONNECT_RECV_OPEN data)
         {
             SimConnectInterface.RegisterDataDefinitionsAndStructs();
+            SimConnectInterface.MapClientEvents();
             SimConnectInterface.StartRequests();
+
+            // TEST START
+
+            for (int i = 0; i < 10; i++)
+            {
+                SimConnectInterface.SimConnectInstance.TransmitClientEvent(1, SimEventEnums.EVENT_ID.EVENT_COM_RADIO_FRACT_INC_CARRY, 0, null, SIMCONNECT_EVENT_FLAG.DEFAULT);
+
+                Thread.Sleep(500);
+            }
+
+            // TEST END
+
         }
 
         internal static void SimConnectInterface_HandleOnRecvSimobjectData(Microsoft.FlightSimulator.SimConnect.SimConnect sender, SIMCONNECT_RECV_SIMOBJECT_DATA data)

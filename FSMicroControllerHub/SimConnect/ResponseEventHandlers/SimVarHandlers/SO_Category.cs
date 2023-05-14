@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FSMicroControllerHub.SimConnect.Events.SimVarHandlers
+namespace FSMicroControllerHub.SimConnect.ResponseEventHandlers.SimVarHandlers
 {
     internal class SO_Category : IEventSimVar
     {

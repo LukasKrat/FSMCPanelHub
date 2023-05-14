@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FSMicroControllerHub.SimConnect.Events
+namespace FSMicroControllerHub.SimConnect.ResponseEventHandlers
 {
     internal class EventDataOnSimObject
     {

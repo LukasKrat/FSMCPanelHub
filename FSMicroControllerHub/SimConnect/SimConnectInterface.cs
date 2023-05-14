@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FSMicroControllerHub.SimConnect.Events;
+using FSMicroControllerHub.SimConnect.ResponseEventHandlers;
 using Microsoft.FlightSimulator.SimConnect;
 
 namespace FSMicroControllerHub.SimConnect
@@ -73,7 +73,21 @@ namespace FSMicroControllerHub.SimConnect
         {
             try
             {
-                SimConnectInstance.RequestDataOnSimObject(SimConnectInterfaceDefinitionEnums.DATA_REQUESTS.SO_CATEGORY, SimConnectInterfaceDefinitionEnums.DATA_DEFINITIONS.SO_CATEGORY, 1, SIMCONNECT_PERIOD.ONCE, SIMCONNECT_DATA_REQUEST_FLAG.DEFAULT, 0, 0, 0);
+                //SimConnectInstance.RequestDataOnSimObject(SimConnectInterfaceDefinitionEnums.DATA_REQUESTS.SO_CATEGORY, SimConnectInterfaceDefinitionEnums.DATA_DEFINITIONS.SO_CATEGORY, 1, SIMCONNECT_PERIOD.ONCE, SIMCONNECT_DATA_REQUEST_FLAG.DEFAULT, 0, 0, 0);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                throw;
+            }
+        }
+
+        internal static void MapClientEvents()
+        {
+            try
+            {
+                SimConnectInstance.MapClientEventToSimEvent(SimEvents.SimEventEnums.EVENT_ID.EVENT_COM_RADIO_FRACT_DEC_CARRY, "COM_RADIO_FRACT_DEC_CARRY");
+                SimConnectInstance.MapClientEventToSimEvent(SimEvents.SimEventEnums.EVENT_ID.EVENT_COM_RADIO_FRACT_INC_CARRY, "COM_RADIO_FRACT_INC_CARRY");
             }
             catch (Exception ex)
             {
