@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FSMicroControllerHub.SimConnect.Events;
 using Microsoft.FlightSimulator.SimConnect;
 
 namespace FSMicroControllerHub.SimConnect
@@ -18,7 +19,9 @@ namespace FSMicroControllerHub.SimConnect
             {
                 if (SimConnectInstance == null)
                 {
+                    new EventDataOnSimObject();  //Create istance and register internal event-handlers;
                     SimConnectInstance = new Microsoft.FlightSimulator.SimConnect.SimConnect(Program.Configuration["SimConnect:ClientName"], handle, Convert.ToUInt32(Program.Configuration["SimConnect:WmUserId"]), null, 0);
+                    
                     RegisterHandlers();
                 }
             }
@@ -48,8 +51,16 @@ namespace FSMicroControllerHub.SimConnect
             try
             {
                 // SimObject - CATEGORY
-                SimConnectInstance.AddToDataDefinition(SimConnectInterfaceDefinitionEnums.DATA_DEFINITIONS.SO_CATEGORY, "CATEGORY", null, SIMCONNECT_DATATYPE.STRING256, 0, 1);
-                SimConnectInstance.RegisterDataDefineStruct<SimConnectInterfaceDataStructures.CATEGORY>(SimConnectInterfaceDefinitionEnums.DATA_REQUESTS.SO_CATEGORY);
+                foreach (var element in EventDataOnSimObject.SimVarHandlerRegistry)
+                {
+                    var dataDefinition = (SimConnectInterfaceDefinitionEnums.DATA_DEFINITIONS)element.Value.GetField("DefinitionId")?.GetValue(null);
+                    var svName = element.Value.GetField("Name")?.GetValue(null)?.ToString();
+                    
+                    SimConnectInstance.AddToDataDefinition(dataDefinition, svName, null, SIMCONNECT_DATATYPE.STRING256, 0, 1);
+
+                    //SimConnectInstance.AddToDataDefinition(SimConnectInterfaceDefinitionEnums.DATA_DEFINITIONS.SO_CATEGORY, "CATEGORY", null, SIMCONNECT_DATATYPE.STRING256, 0, 1);
+                    SimConnectInstance.RegisterDataDefineStruct<SimConnectInterfaceDataStructures.CATEGORY>(SimConnectInterfaceDefinitionEnums.DATA_REQUESTS.SO_CATEGORY);
+                }
             }
             catch (Exception ex)
             {
