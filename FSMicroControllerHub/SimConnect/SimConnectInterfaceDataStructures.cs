@@ -10,7 +10,7 @@ namespace FSMicroControllerHub.SimConnect
     internal class SimConnectInterfaceDataStructures
     {
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi, Pack = 1)]
-        struct StructCategory
+        internal struct CATEGORY
         {
             [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 256)]
             public String category;
