@@ -25,7 +25,7 @@ namespace FSMicroControllerHub.SimConnect
                 {
                     case (byte)SimConnectInterfaceDefinitionEnums.DATA_REQUESTS.SO_CATEGORY:
                         new EventDataOnSimObject();
-                        EventDataOnSimObject.Handle((SimConnectInterfaceDefinitionEnums.DATA_DEFINITIONS)data.dwDefineID, sender, data);
+                        EventDataOnSimObject.Handle((byte)data.dwDefineID, sender, data);
                         break;
                     default:
                         break;

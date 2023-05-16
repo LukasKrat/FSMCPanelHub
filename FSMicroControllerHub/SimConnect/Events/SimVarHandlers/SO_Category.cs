@@ -9,7 +9,7 @@ namespace FSMicroControllerHub.SimConnect.Events.SimVarHandlers
     internal class SO_Category : IEventSimVar
     {
         public static string Name = "CATEGORY";
-        public static SimConnectInterfaceDefinitionEnums.DATA_DEFINITIONS DefinitionId = SimConnectInterfaceDefinitionEnums.DATA_DEFINITIONS.SO_CATEGORY;
+        public static byte DefinitionId = (byte)SimConnectInterfaceDefinitionEnums.DATA_DEFINITIONS.SO_CATEGORY;
 
         public void Handle(object eventSender, object eventData)
         {

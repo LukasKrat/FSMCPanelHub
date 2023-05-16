@@ -10,7 +10,7 @@ namespace FSMicroControllerHub.SimConnect.Events
 {
     internal class EventDataOnSimObject
     {
-        internal static Dictionary<SimConnectInterfaceDefinitionEnums.DATA_DEFINITIONS, Type> SimVarHandlerRegistry { get; private set; } = null;
+        internal static Dictionary<byte, Type> SimVarHandlerRegistry { get; private set; } = null;
 
         internal EventDataOnSimObject()
         {
@@ -23,11 +23,11 @@ namespace FSMicroControllerHub.SimConnect.Events
                     Type[] types = t.GetInterfaces();
                     return types.Contains(typeof(IEventSimVar));
                 })?
-                .ToDictionary(k => (SimConnectInterfaceDefinitionEnums.DATA_DEFINITIONS)k.GetField("DefinitionId")?.GetValue(null));
+                .ToDictionary(k => (byte)k.GetField("DefinitionId")?.GetValue(null));
             }
         }
 
-        internal static void Handle(SimConnectInterfaceDefinitionEnums.DATA_DEFINITIONS definitionId, object eventSender, object eventData)
+        internal static void Handle(byte definitionId, object eventSender, object eventData)
         {
             Type svType = SimVarHandlerRegistry[definitionId];
             svType.GetMethod("Handle")?.Invoke(Activator.CreateInstance(svType), new object[] { eventSender, eventData });
