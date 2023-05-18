@@ -76,6 +76,8 @@ namespace FSMicroControllerHub.SimConnectInterfacing
 
                     SimConnectInstance.AddToDataDefinition(dataDefinition, svName, null, (SIMCONNECT_DATATYPE)datumType, fEpsilon, datumId);
 
+                    element.Value.GetMethod("RegisterDataDefineStruct")?.Invoke(Activator.CreateInstance(element.Value), new object[] { SimConnectInstance });
+                    
                     //SimConnectInstance.AddToDataDefinition(SimConnectInterfaceDefinitionEnums.DATA_DEFINITIONS.SO_CATEGORY, "CATEGORY", null, SIMCONNECT_DATATYPE.STRING256, 0, 1);
                     //SimConnectInstance.RegisterDataDefineStruct<SimConnectInterfaceDataStructures.CATEGORY>(SimConnectInterfaceDefinitionEnums.DATA_REQUESTS.SO_CATEGORY);
                 }
