@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FSMicroControllerHub.SimConnect.SimEvents
+namespace FSMicroControllerHub.SimConnectInterfacing.SimEvents
 {
     internal class SimEvents
     {

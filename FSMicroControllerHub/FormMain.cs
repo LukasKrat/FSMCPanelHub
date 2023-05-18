@@ -1,5 +1,5 @@
-using FSMicroControllerHub.SimConnect;
-using FSMicroControllerHub.SimConnect.Control;
+using FSMicroControllerHub.SimConnectInterfacing;
+using FSMicroControllerHub.SimConnectInterfacing.Control;
 
 namespace FSMicroControllerHub
 {
@@ -12,7 +12,6 @@ namespace FSMicroControllerHub
             InitializeComponent();
 
             this.simConnectInterface = new SimConnectInterface(base.Handle);
-            new SCIControl().SetRadioFrequence();
         }
 
         protected override void DefWndProc(ref Message m)

@@ -5,8 +5,11 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FSMicroControllerHub.SimConnect
+namespace FSMicroControllerHub.SimConnectInterfacing
 {
+    /// <summary>
+    /// Contains all Event-Data-Structures to be registered with SimConnect.
+    /// </summary>
     internal class SimConnectInterfaceDataStructures
     {
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi, Pack = 1)]

@@ -4,15 +4,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FSMicroControllerHub.SimConnect
+namespace FSMicroControllerHub.SimConnectInterfacing
 {
+    /// <summary>
+    /// Contains all Data-Definitions in an enum and all Data-Requests in an enum.
+    /// </summary>
     internal class SimConnectInterfaceDefinitionEnums
     {
+        /// <summary>
+        /// Contains all Data-Definitions.
+        /// </summary>
         internal enum DATA_DEFINITIONS
         {
             SO_CATEGORY = 0
         }
 
+        /// <summary>
+        /// Contains all Data-Requests.
+        /// </summary>
         internal enum DATA_REQUESTS : byte
         {
             SO_CATEGORY

@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FSMicroControllerHub.SimConnect.ResponseEventHandlers
+namespace FSMicroControllerHub.SimConnectInterfacing.ResponseEventHandlers
 {
     internal class EventDataOnSimObject
     {
@@ -23,7 +23,7 @@ namespace FSMicroControllerHub.SimConnect.ResponseEventHandlers
                     Type[] types = t.GetInterfaces();
                     return types.Contains(typeof(IEventSimVar));
                 })?
-                .ToDictionary(k => (SimConnectInterfaceDefinitionEnums.DATA_DEFINITIONS)k.GetField("DefinitionId")?.GetValue(null));
+                .ToDictionary(k => (SimConnectInterfaceDefinitionEnums.DATA_DEFINITIONS)k.GetField("DefineId")?.GetValue(null));
             }
         }
 
