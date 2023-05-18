@@ -74,7 +74,7 @@ namespace FSMicroControllerHub.SimConnectInterfacing
                     float fEpsilon = (float)Convert.ToDouble(element.Value.GetField("fEpsilon")?.GetValue(null));
                     uint datumId = Convert.ToUInt32(element.Value.GetField("DatumId")?.GetValue(null));
 
-                    SimConnectInstance.AddToDataDefinition(dataDefinition, svName, null, (SIMCONNECT_DATATYPE)datumType, fEpsilon, datumId);
+                    SimConnectInstance.AddToDataDefinition(dataDefinition, svName, unitsName, (SIMCONNECT_DATATYPE)datumType, fEpsilon, datumId);
 
                     element.Value.GetMethod("RegisterDataDefineStruct")?.Invoke(Activator.CreateInstance(element.Value), new object[] { SimConnectInstance });
                     

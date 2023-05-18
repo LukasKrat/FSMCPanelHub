@@ -46,6 +46,10 @@ namespace FSMicroControllerHub.SimConnectInterfacing
                         new EventDataOnSimObject();
                         EventDataOnSimObject.Handle((SimConnectInterfaceDefinitionEnums.DATA_DEFINITIONS)data.dwDefineID, sender, data);
                         break;
+                    case (byte)SimConnectInterfaceDefinitionEnums.DATA_REQUESTS.SO_COM_STANDBY_FREQUENCY_1:
+                        new EventDataOnSimObject();
+                        EventDataOnSimObject.Handle((SimConnectInterfaceDefinitionEnums.DATA_DEFINITIONS)data.dwDefineID, sender, data);
+                        break;
                     default:
                         break;
                 }

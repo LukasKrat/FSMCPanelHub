@@ -18,5 +18,11 @@ namespace FSMicroControllerHub.SimConnectInterfacing
             [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 256)]
             public String category;
         };
+
+        [StructLayout(LayoutKind.Sequential, Pack = 1)]
+        internal struct SO_COM_STANDBY_FREQUENCY_1
+        {
+            public float COM_STANDBY_FREQUENCY_1;
+        };
     }
 }

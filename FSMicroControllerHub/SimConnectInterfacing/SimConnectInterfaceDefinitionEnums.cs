@@ -16,7 +16,8 @@ namespace FSMicroControllerHub.SimConnectInterfacing
         /// </summary>
         internal enum DATA_DEFINITIONS
         {
-            SO_CATEGORY = 0
+            SO_CATEGORY = 0,
+            SO_COM_STANDBY_FREQUENCY_1 = 1
         }
 
         /// <summary>
@@ -24,7 +25,8 @@ namespace FSMicroControllerHub.SimConnectInterfacing
         /// </summary>
         internal enum DATA_REQUESTS : byte
         {
-            SO_CATEGORY
+            SO_CATEGORY,
+            SO_COM_STANDBY_FREQUENCY_1
         }
     }
 }
