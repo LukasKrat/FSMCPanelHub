@@ -6,8 +6,14 @@ using System.Windows.Forms;
 
 namespace FSMicroControllerHub.SimConnectInterfacing.Control
 {
+    /// <summary>
+    /// Class for SimConectInterfacing-Control-methods.
+    /// </summary>
     internal class SCIControl
     {
+        /// <summary>
+        /// Decrease the Radio Frequency of COM1.
+        /// </summary>
         internal void DecreaseRadioFrequenceCOM1()
         {
             try
@@ -21,6 +27,9 @@ namespace FSMicroControllerHub.SimConnectInterfacing.Control
             }
         }
 
+        /// <summary>
+        /// Increase the Radio Frequency of COM1.
+        /// </summary>
         internal void IncreaseRadioFrequenceCOM1()
         {
             try
