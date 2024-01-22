@@ -1,3 +1,4 @@
+using FSMicroControllerHub.SimConnectInterfacing.Control;
 using Microsoft.Extensions.Configuration;
 
 namespace FSMicroControllerHub
