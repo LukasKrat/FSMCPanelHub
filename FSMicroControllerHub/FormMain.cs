@@ -1,5 +1,4 @@
 using FSMicroControllerHub.SimConnectInterfacing;
-using FSMicroControllerHub.SimConnectInterfacing.Control;
 
 namespace FSMicroControllerHub
 {

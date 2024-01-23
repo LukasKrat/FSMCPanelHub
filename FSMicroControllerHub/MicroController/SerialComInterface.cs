@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO.Ports;
 using System.Linq;
+using System.Management;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -24,6 +25,20 @@ namespace FSMCPanelHub.MicroController
                 Thread.Sleep(200);
             }
         }
+        */
+
+        /*
+        using (var searcher = new ManagementObjectSearcher
+                ("SELECT * FROM WIN32_SerialPort"))
+            {
+                string[] portnames = SerialPort.GetPortNames();
+    var ports = searcher.Get().Cast<ManagementBaseObject>().ToList();
+    var tList = (from n in portnames
+                 join p in ports on n equals p["DeviceID"].ToString()
+                 select n + " - " + p["Name"]).ToList();
+
+    tList.ForEach(Console.WriteLine);
+            }
         */
     }
 }
